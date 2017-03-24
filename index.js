@@ -20,7 +20,7 @@ function revision(opts, manifest, file) {
 	var replacement;
 	var absolute = file.path;
 	var relative = file.relative;
-	var hash = md5(file.contents, hashLength);
+	var hash = algorithm(file.contents, hashLength);
 
 	if (queryMode) {
 		replacement = '$1' + '$2?v=' + hash;
