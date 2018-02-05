@@ -43,6 +43,7 @@ function replace(opts, manifest, file, enc) {
 	var cwd = opts['cwd'] || process.cwd();
 	var prefix = opts['prefix'] || '';
 	var queryMode = opts['queryMode'] || false;
+  var canonicalize = opts['canonicalize'] || true;
 
 	var base = file.base;
 	var relative = file.relative;
@@ -63,6 +64,11 @@ function replace(opts, manifest, file, enc) {
 				} else {
 					newFilename = path.relative(base, newPath);
 				}
+
+				if (canonicalize) {
+				  newFilename = newFilename.split(path.sep).join(path.posix.sep);
+        }
+
 				gutil.log(
 					PLUGIN_NAME + ': Replace',
 					gutil.colors.green(filename), '->',

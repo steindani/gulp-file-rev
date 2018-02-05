@@ -86,5 +86,13 @@ Type: `String`
 
 Default: `process.cwd()`
 
+##### options.canonicalize
+
+Use a posix path separator ('/') disregarding the current os
+
+Type: `Boolean`
+
+Default: `true`
+
 [npm-url]: https://npmjs.org/package/gulp-file-rev
 [npm-image]: https://badge.fury.io/js/gulp-file-rev.svg
